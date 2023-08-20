@@ -1,14 +1,21 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components";
+import ImageSources from "../ImageSources";
 
-const Hero = () => {
+function Hero() {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <PictureImage>
+        <ImageSources baseSrc="/images/hero-img.jpg" />
+        <Image
+          src="/images/hero-img.jpg"
+          alt="a light brown cat looking directly into the eyes of the reader, its eyes are blue"
+        />
+      </PictureImage>
+      <Swoop src="/swoop.svg" alt="" />
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.section`
   position: relative;
@@ -20,11 +27,17 @@ const Wrapper = styled.section`
   background: hsl(0deg 0% 1%);
 `;
 
-const HeroImage = styled.img`
+const PictureImage = styled.picture`
   display: block;
   width: 500px;
   height: 500px;
   max-height: 100%;
+`;
+
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
 `;
 
 const Swoop = styled.img`

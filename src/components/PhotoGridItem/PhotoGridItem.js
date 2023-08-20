@@ -1,11 +1,15 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
+import ImageSources from "../ImageSources";
 
 const PhotoGridItem = ({ id, src, alt, tags }) => {
   return (
     <article>
       <Anchor href={`/photos/${id}`}>
-        <Image src={src} />
+        <PictureImage>
+          <ImageSources baseSrc={src} />
+          <Image src={src} />
+        </PictureImage>
       </Anchor>
       <Tags>
         {tags.map((tag) => (
@@ -22,12 +26,18 @@ const Anchor = styled.a`
   outline-offset: 4px;
 `;
 
-const Image = styled.img`
+const PictureImage = styled.picture`
   display: block;
   width: 100%;
   height: 300px;
   border-radius: 2px;
   margin-bottom: 8px;
+`;
+
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
 `;
 
 const Tags = styled.ul`
